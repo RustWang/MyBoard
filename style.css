@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+ul,ol{
+    list-style: none;
+}
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+html{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#canvas {
+    background: #fff;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.actions {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.actions svg {
+    fill: black;
+    width: 2em;
+    height: 2em;
+    margin: 10px;
+    vertical-align: top;
+
+    transition: all 0.3s;
+}
+
+.actions svg:nth-child(1), svg:nth-child(3) {
+    width: 2em;
+    height: 2em;
+}
+
+.actions svg:nth-child(2) {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+svg.active {
+    transform: scale(1.5);
+   
+}
+svg.eraseractive{
+    fill: #ff5113;
+}
+.colors{
+    width: 45px;
+    position: fixed;
+    top: 90px;
+    left: 16px;
+}
+.colors>li{
+    
+    width: 35px;
+    height: 35px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+
+    transition: all 0.3s;
+}
+
+.colors li#black{
+    background: black;
+}
+.colors li#red{
+    background: red;
+}
+.colors li#blue{
+    background: blue;
+}
+.colors li#green{
+    background: green;
+}
+.colors li#orange{
+    background: orange;
+}
+
+.colors .active{
+    transform: scale(1.2);
+    box-shadow: 0 0 2px 2px #898b8d;
+}
+
+.sizes{
+    position: fixed;
+    top: 30px;
+    right: 20px ;
+}
+.sizes>li{
+    width: 40px;
+    height: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sizes .sizes_1{
+    border-top: 2px solid black;
+    font-weight: 100;
+}
+.sizes .sizes_2{
+    border-top: 4px solid black;
+    font-weight: 400;
+}
+.sizes .sizes_3{
+    border-top: 6px solid black;
+    font-weight: 600;
+}
+.sizes .sizes_4{
+    border-top: 8px solid black;
+    font-weight: 700;
+}
+
+.sizes>li.active{
+    border-top-color: #ff5113;
+    color: #ff5113;
+}
+.moveToBottomClass{
+    animation: moveToBottom 0.82s;
+}
+
+.shakeClass {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+.actions>svg,.colors>li,.sizes>li{
+    cursor: pointer;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, -2px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 2px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-10px, -8px, -10px);
+    }
+
+    40%, 60% {
+        transform: translate3d(10px, 8px, 10px);
+    }
+}
+.dexcribe{
+    position: fixed;
+    opacity: 0;
+}
+
+@keyframes moveToBottom {
+    from {
+        margin-top: 10px;
+    }
+
+    to {
+        margin-top: 35px;
+    }
+}

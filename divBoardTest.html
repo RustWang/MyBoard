@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的画板</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            background:powderblue;
+            height: 100vh;
+            position: relative;
+        }
+  
+    </style>
+</head>
+<body>
+    <div class="canvas" id="canvas">
+
+    </div>
+</body>
+
+<script>
+    var canvas = document.getElementById('canvas');
+
+    var painting = false;
+
+    canvas.onmousedown = function(down){
+        painting = true;
+    };
+
+    canvas.onmousemove = function (move) {
+       if(painting){
+           var x = move.clientX;
+           var y = move.clientY;
+           var point = document.createElement("div");
+           point.style = "position: absolute;\n" +
+               "            left: "+(x-3)+"px;\n" +
+               "            top: "+(y-3)+"px;\n" +
+               "            background-color: #000;\n" +
+               "            width: 6px;\n" +
+               "            height: 6px;\n" +
+               "            border-radius: 3px;";
+           canvas.appendChild(point);
+
+           
+       }
+    };
+    canvas.onmouseup = function(up){
+        painting = false;
+    };
+</script>
+</html>
